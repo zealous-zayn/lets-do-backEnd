@@ -23,6 +23,13 @@ app.use(globalErrorMiddleware.globalErrorHandler);
 const modelPath = './App/models';
 const routePath = './App/routes';
 
+app.all('*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+  next();
+});
+
 
 //Bootstrap models
 fs.readdirSync(modelPath).forEach(function (file) {
@@ -56,7 +63,7 @@ server.on('listening', onListening);
 // end server listening code
 
 // socket io connection handler 
-const socketLib = require("./app/libs/socketLib");
+const socketLib = require("./App/libs/socketLib");
 const socketServer = socketLib.setServer(server);
 
 // end socketio connection handler
@@ -64,7 +71,7 @@ const socketServer = socketLib.setServer(server);
 
 function onError(error) {
     if (error.syscall !== 'listen') {
-      logger.captureError(error.code + ' not equal listen', 'serverOnErrorHandler', 10)
+      logger.captureError(error.code + 'not equal listen', 'serverOnErrorHandler', 10)
       throw error;
     }
   
