@@ -12,7 +12,7 @@ const emailVerify = require('./../libs/emailVerificationLib')
 const UserModel = mongoose.model('User')
 const AuthModel = mongoose.model('Auth')
 
-const appUrl = 'http://localhost:4200'
+const appUrl = "http://lets-do.issuetrackerpro.com"
 
 
 let getAllUser = async (req, res) => {
