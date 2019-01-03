@@ -7,7 +7,7 @@ let sendEmail = (sendEmailOptions) => {
     let account = {
         auth: {
             api_user: "zealous_zayn", 
-            api_key: "arfin@143" 
+            api_key: "******" 
         }
     }
 
